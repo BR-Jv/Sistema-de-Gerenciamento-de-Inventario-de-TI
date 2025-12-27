@@ -1,0 +1,6 @@
+vendors
+/app/Vendor 
+/app/tmp
+/app/Config/database.php
+
+.vscode/

@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    build: .                
+    container_name: cake_app
+    restart: always
+    ports:
+      - "8080:80"           
+    volumes:
+      - .:/var/www/html     
+    depends_on:
+      - db                  
+
+  db:
+    image: postgres:13-alpine
+    container_name: cake_db
+    restart: always
+    environment:
+      POSTGRES_DB: cake_db
+      POSTGRES_USER: cake_user
+      POSTGRES_PASSWORD: cake_password
+    ports: 
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data 
+
+volumes:
+  pg_data:
