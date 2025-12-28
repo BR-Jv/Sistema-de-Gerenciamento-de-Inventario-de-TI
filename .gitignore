@@ -1,6 +1,6 @@
 vendors
 /app/Vendor 
-/app/tmp
+/app/tmp/
 /app/Config/database.php
 
 .vscode/
