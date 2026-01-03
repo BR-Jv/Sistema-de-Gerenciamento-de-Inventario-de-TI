@@ -26,7 +26,7 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'users', 'action' => 'login'));
-	Router::connect('/users/add/', array('controller' => 'users', 'action' => 'add'));
+	Router::connect('/users/list', array('controller' => 'users', 'action' => 'tolist'));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */

@@ -8,13 +8,15 @@ class UsersController extends AppController
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'edit');
+        $this->Auth->allow('add', 'edit', 'tolist', 'delete');
     }
 
-    public function index()
+    public function tolist()
     {
-        $this->User->recursive = 0;
-        $this->set('users', $this->paginate());
+        // $this->User->recursive = 0;
+        // $this->set('users', $this->paginate());
+        $this->set('users', $this->User->find('all'));
+
     }
 
     public function add()
@@ -23,12 +25,14 @@ class UsersController extends AppController
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Flash->success(__('Usuário salvo com sucesso!'));
-                return $this->redirect(array('action' => 'add')); //TODO - mudar o action
+                return $this->redirect(array('action' => 'tolist'));
             }
             $this->Flash->error(__('Usuário não pode ser salvo, tente novamente!'));
         }
     }
 
+
+    //! Toda vez que faço a edição a senha é criptografada novamente, verificar isso. 
     public function edit($id = null) {
         $this->User->id = $id; 
         if(!$this->User->exists()){
@@ -38,16 +42,16 @@ class UsersController extends AppController
         if($this->request->is(array('post', 'put'))){
             if ($this->User->save($this->request->data)) {
                 $this->Flash->success(__('Usuário salvo com sucesso!'));
-                return $this->redirect(array('action' => 'add')); //TODO - mudar o action
+                return $this->redirect(array('action' => 'tolist')); 
             }
             $this->Flash->error(__('Usuário não pode ser salvo, tente novamente!'));
 
         } 
         
-        $this->request->data = $this->User->read(); //Verificar o que essa função read faz
+        $this->request->data = $this->User->read(); //! Verificar o que essa função read faz
     }
 
-
+    //* Alterar a lógica para deixar o usuário inativo e não deletar de fato.
     public function delete($id){
         $this->User->id = $id; 
         if(!$this->User->exists()){
@@ -56,7 +60,7 @@ class UsersController extends AppController
 
         if($this->User->delete($id)){
             $this->Flash->success(__('Usuário desativado com sucesso!'));
-            return $this->redirect(array('action' => 'add')); //TODO - mudar o action 
+            return $this->redirect(array('action' => 'tolist'));  
         }
     }
 
