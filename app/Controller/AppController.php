@@ -53,7 +53,6 @@ class AppController extends Controller {
 
     public function beforeFilter()
     {
-        //* Sinalizando quais actions não precisam de autenticação
-        $this->Auth->allow('login');
+        $this->Auth->allow('login', 'add', 'edit', 'tolist', 'delete');
     }
 }

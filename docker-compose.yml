@@ -5,7 +5,7 @@ services:
     build: .                
     image: sgti-app
     container_name: cake_app
-    restart: always
+    restart: no
     ports:
       - "8080:80"           
     volumes:
@@ -16,7 +16,7 @@ services:
   db:
     image: postgres:13-alpine
     container_name: cake_db
-    restart: always
+    restart: no
     environment:
       POSTGRES_DB: cake_db
       POSTGRES_USER: cake_user

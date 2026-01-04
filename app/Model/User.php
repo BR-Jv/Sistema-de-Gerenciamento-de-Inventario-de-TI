@@ -9,6 +9,10 @@ class User extends AppModel {
             'required' => array(
                 'rule' => 'notBlank',
                 'message' => 'O username é obrigatório'
+            ),
+            'alphaNumeric' => array(
+                'rule' => 'alphaNumeric',
+                'message' => 'Só são aceitos letras e números.'
             )
         ),
         'password' => array(

@@ -5,11 +5,6 @@ class LocationsController extends AppController
     public $name = 'Locations';
     public $uses = array();
 
-    public function beforeFilter()
-    {
-        parent::beforeFilter();
-        $this->Auth->allow('add', 'edit', 'tolist', 'delete');
-    }
 
     public function tolist()
     {
