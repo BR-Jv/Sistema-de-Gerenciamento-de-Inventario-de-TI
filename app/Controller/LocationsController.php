@@ -16,10 +16,10 @@ class LocationsController extends AppController
         if ($this->request->is('post')) {
             $this->Location->create();
             if ($this->Location->save($this->request->data)) {
-                $this->Flash->success(__('Location salva com sucesso!'));
+                $this->Flash->success(__('Localização salva com sucesso!'));
                 return $this->redirect(array('action' => 'tolist'));
             }
-            $this->Flash->error(__('Location não pode ser salvo, tente novamente!'));
+            $this->Flash->error(__('Localização não pode ser salvo, tente novamente!'));
         }
     }
 
@@ -27,15 +27,15 @@ class LocationsController extends AppController
     {
         $this->Location->id = $id; 
         if(!$this->Location->exists()){
-            throw new NotFoundException(__('Location não foi encontrado em nossa base de dados.'));
+            throw new NotFoundException(__('Localização não foi encontrado em nossa base de dados.'));
         }
 
         if($this->request->is(array('post', 'put'))){
             if ($this->Location->save($this->request->data)) {
-                $this->Flash->success(__('Location salvo com sucesso!'));
+                $this->Flash->success(__('Localização salva com sucesso!'));
                 return $this->redirect(array('action' => 'tolist')); 
             }
-            $this->Flash->error(__('Location não pode ser salvo, tente novamente!'));
+            $this->Flash->error(__('Localização não pode ser salvo, tente novamente!'));
 
         } 
         
@@ -46,11 +46,11 @@ class LocationsController extends AppController
     {
         $this->Location->id = $id; 
         if(!$this->Location->exists()){
-            throw new NotFoundException(__('Location não foi encontrado em nossa base de dados.'));
+            throw new NotFoundException(__('Localização não foi encontrado em nossa base de dados.'));
         }
 
         if($this->Location->delete($id)){
-            $this->Flash->success(__('Location desativado com sucesso!'));
+            $this->Flash->success(__('Localização desativado com sucesso!'));
             return $this->redirect(array('action' => 'tolist'));  
         }
     }
