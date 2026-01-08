@@ -26,8 +26,37 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'users', 'action' => 'login'));
-	Router::connect('/users/list', array('controller' => 'users', 'action' => 'tolist'));
-/**
+	
+
+
+	Router::connect('/users/login', array('controller' => 'users', 'action' => 'login'));
+	Router::connect('/users/logout', array('controller' => 'users', 'action' => 'logout'));
+	Router::connect('/users/tolist', array('controller' => 'users', 'action' => 'tolist'));
+	Router::connect('/users/add', array('controller' => 'users', 'action' => 'add'));
+	Router::connect('/users/edit/', array('controller' => 'users', 'action' => 'edit'));
+	Router::connect('/users/delete/', array('controller' => 'users', 'action' => 'delete'));
+	
+	Router::connect('/categories/tolist', array('controller' => 'categories', 'action' => 'tolist'));
+	Router::connect('/categories/add', array('controller' => 'categories', 'action' => 'add'));
+	Router::connect('/categories/edit/', array('controller' => 'categories', 'action' => 'edit'));
+	Router::connect('/categories/delete/', array('controller' => 'categories', 'action' => 'delete'));
+
+	Router::connect('/items/tolist', array('controller' => 'items', 'action' => 'tolist'));
+	Router::connect('/items/add', array('controller' => 'items', 'action' => 'add'));
+	Router::connect('/items/edit/', array('controller' => 'items', 'action' => 'edit'));
+	Router::connect('/items/delete/', array('controller' => 'items', 'action' => 'delete'));
+
+	Router::connect('/locations/tolist', array('controller' => 'locations', 'action' => 'tolist'));
+	Router::connect('/locations/add', array('controller' => 'locations', 'action' => 'add'));
+	Router::connect('/locations/edit/', array('controller' => 'locations', 'action' => 'edit'));
+	Router::connect('/locations/delete/', array('controller' => 'locations', 'action' => 'delete'));
+
+
+
+
+
+
+	/**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));

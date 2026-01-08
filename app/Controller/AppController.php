@@ -36,13 +36,14 @@ class AppController extends Controller {
         'Flash', 
         'Auth' => array(
             'loginRedirect' => array(
-                'controller' => '',
-                'action' => ''
+                'controller' => 'users',
+                'action' => 'login'
             ),
             'logoutRedirect' => array(
                 'controller' => 'users',
                 'action' => 'login',
             ),
+            'authError' => 'Permissão negada',
             'authenticate' => array(
                 'Form' => array(
                     'passwordHasher' => 'Blowfish'
@@ -53,6 +54,6 @@ class AppController extends Controller {
 
     public function beforeFilter()
     {
-        $this->Auth->allow('login', 'add', 'edit', 'tolist', 'delete');
+        $this->Auth->allow('login');
     }
 }
