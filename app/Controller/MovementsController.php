@@ -3,7 +3,7 @@
 class MovementsController extends AppController
 {
     public $name = 'Movements';
-    public $uses = array();
+    public $uses = array('Item');
 
 
     public function tolist()
@@ -21,6 +21,13 @@ class MovementsController extends AppController
             }
             $this->Flash->error(__('Movement não pode ser salvo, tente novamente!'));
         }
+
+        $this->set('items', $this->Item->find('list'));
+        $this->set('options', array('ENT' => 'Entrada', 'SAI' => 'Saida'));
+    }
+
+    private function entrada(){
+
     }
 
     

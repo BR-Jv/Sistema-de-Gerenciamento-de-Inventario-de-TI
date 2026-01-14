@@ -24,7 +24,6 @@ class UsersController extends AppController
         }
     }
 
-
     //! Toda vez que faço a edição a senha é criptografada novamente, verificar isso. 
     public function edit($id = null)
     {

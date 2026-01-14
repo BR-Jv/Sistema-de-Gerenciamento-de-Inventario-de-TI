@@ -27,8 +27,6 @@
  */
 	Router::connect('/', array('controller' => 'users', 'action' => 'login'));
 	
-
-
 	Router::connect('/users/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/users/logout', array('controller' => 'users', 'action' => 'logout'));
 	Router::connect('/users/tolist', array('controller' => 'users', 'action' => 'tolist'));
@@ -50,11 +48,6 @@
 	Router::connect('/locations/add', array('controller' => 'locations', 'action' => 'add'));
 	Router::connect('/locations/edit/', array('controller' => 'locations', 'action' => 'edit'));
 	Router::connect('/locations/delete/', array('controller' => 'locations', 'action' => 'delete'));
-
-
-
-
-
 
 	/**
  * ...and connect the rest of 'Pages' controller's URLs.
