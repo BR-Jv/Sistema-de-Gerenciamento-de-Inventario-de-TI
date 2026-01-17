@@ -4,8 +4,14 @@ class Movement extends AppModel {
     public $name = 'Movement';
 
     public $validate = array(
-        //TODO: Fazer a validar dos outros campos
-
+        //TODO: Fazer a validação dos outros campos
+        
+        'quantity' => array(
+            'required' => array(
+                'rule' => 'notBlank',
+                'message' => 'A senha é obrigatória'
+            )
+        ),
         'type' => array(
             'valid' => array(
                 'rule' => array('inList', array('ENT', 'SAI')), 

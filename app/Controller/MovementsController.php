@@ -3,8 +3,7 @@
 class MovementsController extends AppController
 {
     public $name = 'Movements';
-    public $uses = array('Item');
-
+    public $uses = array('Movement', 'Item', 'Location');
 
     public function tolist()
     {
@@ -15,6 +14,7 @@ class MovementsController extends AppController
     {
         if ($this->request->is('post')) {
             $this->Movement->create();
+            $this->request->data['Movement']['user_id'] = $this->Auth->user('id');
             if ($this->Movement->save($this->request->data)) {
                 $this->Flash->success(__('Movement salva com sucesso!'));
                 return $this->redirect(array('action' => 'tolist'));
@@ -22,12 +22,10 @@ class MovementsController extends AppController
             $this->Flash->error(__('Movement não pode ser salvo, tente novamente!'));
         }
 
+        $this->set('locations', $this->Location->find('list'));
         $this->set('items', $this->Item->find('list'));
+        //TODO: Mudar o nome da variável
         $this->set('options', array('ENT' => 'Entrada', 'SAI' => 'Saida'));
-    }
-
-    private function entrada(){
-
     }
 
     

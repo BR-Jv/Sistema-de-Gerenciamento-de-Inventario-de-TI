@@ -3,7 +3,7 @@
 class ItemsController extends AppController
 {
     public $name = 'Items';
-    public $uses = array('Item', 'Category', 'Location');
+    public $uses = array('Item', 'Category');
 
     public function tolist()
     {
@@ -22,7 +22,6 @@ class ItemsController extends AppController
         }
 
         $this->set('categories', $this->Category->find('list'));
-        $this->set('locations', $this->Location->find('list'));
     }
 
     public function edit($id = null) 

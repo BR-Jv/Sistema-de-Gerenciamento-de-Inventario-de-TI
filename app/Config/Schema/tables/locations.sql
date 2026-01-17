@@ -4,11 +4,6 @@ create table "locations" (
 );
 
 insert into locations (name) values 
-('Tecnologia da Informação'),
-('Infraestrutura de T.I'),
-('Suporte Técnico'),
-('Desenvolvimento de Sistemas'),
-('Segurança da Informação'),
 ('Administração'),
 ('Financeiro'),
 ('Contabilidade'),

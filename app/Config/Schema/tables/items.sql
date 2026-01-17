@@ -3,6 +3,5 @@ create table items (
 	name varchar(255) not null,
 	description varchar(255),
 	quantity int not null,
-	category_id int, 
-	location_id int
+	category_id int 
 );
