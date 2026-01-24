@@ -4,4 +4,5 @@
 <?php echo $this->Html->link('Movimentação', array('controller' => 'movements', 'action' => 'tolist')); ?><br>
 <?php echo $this->Html->link('Categorias', array('controller' => 'categories', 'action' => 'tolist')); ?><br>
 <?php echo $this->Html->link('Departamentos', array('controller' => 'locations', 'action' => 'tolist')); ?><br>
+<?php echo $this->Html->link('Items', array('controller' => 'items', 'action' => 'add')); ?><br>
 <?php echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout')); ?><br>

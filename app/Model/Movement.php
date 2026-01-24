@@ -20,4 +20,12 @@ class Movement extends AppModel {
             )
         )
     );
+    
+
+    //TODO: a lógica de alteração no estoque deve ser feito aqui ?  
+
+    //TODO: As validações de estoque devem ser feitos aqui ? 
+
+
+
 }
