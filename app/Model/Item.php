@@ -19,23 +19,21 @@ class Item extends AppModel {
     );
 
     /**
-     * COnsulta a quantidade de itens no estoque
-     *
-     * Busca a quantidade atual do item diretamente no banco de dados e compara
-     * se é suficiente para cobrir a quantidade solicitada na movimentação.
+     * Consulta o estoque do item
      *
      * @param int $id ID do item.
-     * @param int $movement_quantity Quantidade que se deseja retirar ou movimentar.
-     * @return bool Retorna TRUE se houver estoque suficiente (estoque >= demanda), caso contrário FALSE.
+     * @return int Retorna a quantidade em estoque 
      */
-    public function getQuantity(int $id){
+    public function getEstoque(int $id){
         $sql_quantity_stock = "SELECT i.quantity FROM items i WHERE i.id = $id";
         return Hash::get($this->query($sql_quantity_stock), '0.0.quantity');
     }
 
 
-    public function diminuiEstoque(int $id, int $newQuantity){
+    public function diminuiEstoque(array $data){
         try {
+            $id = $data['id'];
+            $newQuantity = $data['estoque'] - $data['qtd_movimentada'];
             $sql = "UPDATE items SET quantity = $newQuantity WHERE id = $id";
             $this->query($sql);
             return true;
